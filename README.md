@@ -2,12 +2,20 @@
 
 ### Searching
 
-1. Linear Search
-2. Binary Search
+- [ ] Linear Search
+- [ ] Binary Search
 
 ### Sorting
 
-1. Bubble Sort
-2. Selection Sort
-3. Insertion Sort
+- [ ] Bubble Sort
+- [ ] Selection Sort
+- [ ] Insertion Sort
+
+#### Big O of Sorting Algorithms
+
+| Algorithm | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
+| --------- | ---------------------- | ------------------------- | ----------------------  | ---------------  |
+| Bubble Sort | O(n) | O(n*n) | O(n*n) | O(1) |
+| Selection Sort | O(n*n) | O(n*n) | O(n*n) | O(1) |
+| Insertion Sort | O(n) | O(n*n) | O(n*n) | O(1) |
 
