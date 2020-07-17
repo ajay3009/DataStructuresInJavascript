@@ -134,3 +134,41 @@ function quickSort(arr, left= 0, right = arr.length-1 ) {
 quickSort([4,6,9,1,2,5,3]);
 
 /** Quick Sort Implementation end */
+
+/** Radix Sort Implemenation start  */
+
+function digitAtIndex(num, index) {
+    return Math.floor((Math.abs(num)/Math.pow(10,index))%10);
+}
+
+function noOfDigits(num) {
+    return num.toString().length;
+}
+
+function maxDigits(arr) {
+    let max = noOfDigits(arr[0]);
+    for(let i=1;i<arr.length;i++) {
+        max = Math.max(max, noOfDigits(arr[i]));
+    }
+    return max;
+}
+
+function radixSort(arr) {
+    const maxCount = maxDigits(arr);
+    console.log(maxCount);
+    for(let i=0;i<maxCount;i++) {
+        let temparr = Array.from({length:10}, x => []);
+        for(let j=0;j<arr.length;j++) {
+            console.log(digitAtIndex(arr[j],i));
+            temparr[digitAtIndex(arr[j],i)].push(arr[j]);
+        }
+        console.log(temparr);
+        arr = [].concat(...temparr);
+    }
+    return arr;
+}
+
+radixSort([43,21,67,890,43222,5672,981,9,24]);
+
+
+/** Radix Sort Implemenation start  */

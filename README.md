@@ -12,7 +12,7 @@
 - [x] Insertion Sort
 - [x] Merge Sort
 - [x] Quick Sort
-- [ ] Radix Sort
+- [x] Radix Sort
 
 #### Big O of Sorting Algorithms
 
@@ -23,4 +23,5 @@
 | Insertion Sort | O(n) | O(n*n) | O(n*n) | O(1) |
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort | O(n log n) | O(n log n) | O(n*n) | O(log n) |
+| Radix Sort | O(nk) | O(nk) | O(nk) | O(n+k) |
 
