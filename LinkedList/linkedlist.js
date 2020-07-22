@@ -11,7 +11,7 @@ class SinglyLinkedList {
         this.length = 0;
     }
 
-    add(val) {
+    push(val) {
         let node = new Node(val);
         if (this.head == null) {
             this.head = node;
@@ -24,5 +24,21 @@ class SinglyLinkedList {
         }
         this.length++;
         return this;
+    }
+
+    pop() {
+        if (!this.head) {
+            return undefined;
+        } else {
+            let prevNode = this.head;
+            let currentNode = this.head;
+            while(currentNode.next != null) {
+                prevNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            prevNode.next = null;
+            this.length--;
+            return currentNode;
+        }
     }
 }

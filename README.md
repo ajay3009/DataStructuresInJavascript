@@ -25,3 +25,12 @@
 | Quick Sort | O(n log n) | O(n log n) | O(n*n) | O(log n) |
 | Radix Sort | O(nk) | O(nk) | O(nk) | O(n+k) |
 
+
+#### LinkedList
+
+| DataStructure | Method | ShortCut |
+| LinkedList | Push | [Link](https://github.com/ajay3009/DataStructuresInJavascript/blob/dd06ccee159d6b79ee646f6804e035f26044a2d0/LinkedList/linkedlist.js#L14) |
+| LinkedList | Pop | [Link](https://github.com/ajay3009/DataStructuresInJavascript/blob/dd06ccee159d6b79ee646f6804e035f26044a2d0/LinkedList/linkedlist.js#L29) |
+
+
+
