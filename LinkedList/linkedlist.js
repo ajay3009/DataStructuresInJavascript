@@ -38,7 +38,57 @@ class SinglyLinkedList {
             }
             prevNode.next = null;
             this.length--;
+            if (this.length === 0) {
+                this.head = null;
+            }
             return currentNode;
         }
+    }
+
+    shift() {
+        if (!this.head) {
+            return undefined;
+        } else {
+            let currentHead = this.head;
+            this.head = this.head.next;
+            this.length--;
+            return currentHead;
+        }
+    }
+
+    unshift(val) {
+        let newNode = new Node(val);
+        if (!this.length) {
+            this.head = newNode;
+        } else {
+            let currentHead = this.head;
+            this.head = newNode;
+            this.head.next = currentHead;
+        }
+        this.length++;
+        return this;
+    }
+
+    getIndex(index) {
+        if (index < 0 || index > this.length) {
+            return undefined;
+        } else {
+            let counter = 0;
+            let currentNode = this.head;
+            while(counter !== index) {
+                currentNode = currentNode.next;
+                counter++;
+            }
+            return currentNode;
+        }
+    }
+
+    setValue(index, value) {
+        let foundNode = this.getIndex(index);
+        if (foundNode) {
+            foundNode.val = value;
+            return true;
+        }
+        return false;
     }
 }
