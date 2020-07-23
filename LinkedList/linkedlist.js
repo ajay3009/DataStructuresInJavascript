@@ -91,4 +91,73 @@ class SinglyLinkedList {
         }
         return false;
     }
+
+    insertAt(index, val) {
+        if (index < 0 || index > this.length) {
+            return null;
+        } else {
+            let node = new Node(val);
+
+            if (this.length === 0) {
+                this.head = node;
+            } else {
+                let curr = this.head;
+                let prev;
+                let counter = 0;
+                while(counter < index) {
+                    counter++;
+                    prev = curr;
+                    curr = curr.next;
+                }
+                node.next = curr;
+                prev.next = node;
+            }
+            this.length++;
+        }
+    }
+
+    removeFrom(index) {
+        if (index < 0 || index > this.length) {
+            return -1;
+        } else {
+            let counter = 0;
+            let curr = this.head;
+            let prev = this.head;
+            if (index === 0) {
+                this.head = curr.next;
+            } else {
+                while(counter < index) {
+                    counter++;
+                    prev = curr;
+                    curr = curr.next;
+                }
+                prev.next = curr.next;
+            }
+            this.length--;
+            return curr;
+        }
+    }
+
+    reverse() {
+        let current = this.head;
+        let next = null;
+        let prev = null;
+        while(current) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return this;
+    }
+
+    reverserecursive(head) {
+        if (!head || !head.next) {
+            return head;
+        }
+        let node = this.reverserecursive(head.next);
+        node.next = head;
+        head.next = null;
+        return head;
+    }
 }
