@@ -156,8 +156,81 @@ class SinglyLinkedList {
             return head;
         }
         let node = this.reverserecursive(head.next);
-        node.next = head;
+        head.next.next = head;
         head.next = null;
-        return head;
+        return node;
     }
+
+    /* Given a ‘key’, delete the first occurrence of this key in linked list */
+    deleteNode(key) {
+        if (!key) {
+            return false;
+        } else {
+            if (this.head.val === key) {
+               this.head = this.head.next; 
+               this.length--;
+               return true;
+            } else {
+                let temp = this.head;
+                let prev = null;
+                while(temp.val != key) {
+                    prev = temp;
+                    temp = temp.next;
+                }
+                if (temp.val === key) {
+                    prev.next = temp.next;
+                    this.length--;
+                    return true;
+                }
+                return false;
+            }
+        }
+    }
+
+    /* Given a singly linked list and a position, delete a linked list node at the given position. */
+    deleteNodeAtPosition(pos) {
+        if (pos < 0 || pos > this.length-1) {
+            return -1;
+        } else {
+            if (pos === 0) {
+                this.head = this.head.next;
+                this.length--;
+                return pos;
+            } else {
+                let temp = this.head;
+                let prev = null;
+                let counter = 0;
+                while(counter !== pos-1) {
+                    prev = temp;
+                    temp = temp.next;
+                    counter++;
+                }
+                if (!temp) {
+                    return -1;
+                }
+
+                prev.next = temp.next;
+                this.length--;
+                return pos;
+            }
+        }
+    }
+
+    /** Find Length of a Linked List (Iterative and Recursive) */
+
+    getCountIterative() {
+        let counter = 0;
+        while(this.head) {
+            counter++;
+            this.head = this.head.next;
+        }
+        return counter;
+    }
+
+    getCountRecursive(head) {
+        
+        if(!head) return 0;
+        return 1 + this.getCountRecursive(head.next);
+    }
+    
 }
