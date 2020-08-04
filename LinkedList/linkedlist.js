@@ -232,5 +232,54 @@ class SinglyLinkedList {
         if(!head) return 0;
         return 1 + this.getCountRecursive(head.next);
     }
-    
+
+    /** Write a GetNth() function that takes an integer index and returns the data value stored in the node at that index position. */
+
+    getNth(index) {
+        if (index < 0 || index > this.length -1) {
+            return -1;
+        } else {
+            let temp = this.head;
+            let current = 0
+            while(current !== index) {
+                temp = temp.next;
+                current++;
+            }
+            if (!temp) {
+                return -1;
+            }
+            return temp.val;
+        }
+    }
+
+    /** Given a number n, write a function that returns the value at the n'th node from the end of the Linked List. */
+
+    printNthFromLastUsingLength(index) {
+        let counter = 0;
+        let temp = this.head;
+        if (this.length < index || index < 1) {
+            return;
+        }
+        while(counter !== this.length-index) {
+            temp = temp.next;
+            counter++;
+        }
+        return temp.val;
+    }
+
+    printNthFromLastUsingTwoPointers(index) {
+        let p1 = this.head;
+        let p2 = this.head;
+        for(let i=0;i<index;i++) {
+            p1 = p1.next;
+        }
+        let counter = index;
+        while(counter !== this.length) {
+            p1 = p1.next;
+            p2 = p2.next;
+            counter++;
+        }
+        return p2.val;
+    }
+
 }
